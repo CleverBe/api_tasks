@@ -17,27 +17,33 @@ Sigue estos pasos para instalar y ejecutar el proyecto localmente.
    git clone https://github.com/CleverBe/api_tasks.git
    ```
 2. Navega al directorio del proyecto:
+
    ```bash
    cd api_tasks
    ```
+
 3. Instala las dependencias:
+
    ```bash
    npm install
    ```
+
 4. Configura las variables de entorno:
-   Crea un archivo `.env` en el directorio raíz del proyecto y agrega las siguientes variables:
+   Crear un archivo `.env` con las variables listadas en el archivo `.env.example`:
 
-   ```plaintext
-   PORT=
+   ```bash
+   cp .env.example .env
+   ```
 
-   POSTGRES_HOST=
-   POSTGRES_PORT=
-   POSTGRES_USER=
-   POSTGRES_PASSWORD=
-   POSTGRES_DB=
-   DATABASE_URL=
+5. Crear la base de datos con Docker (opcional)
 
-   JWT_SECRET=
+   ```bash
+   docker compose up -d
+   ```
+
+6. Crear las tablas en la base de datos
+   ```bash
+   npx prisma db push
    ```
 
 ## Uso
