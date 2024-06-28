@@ -1,7 +1,7 @@
 {
   "name": "app_tasks",
   "version": "1.0.0",
-  "description": "",
+  "description": "rest api about tasks",
   "main": "index.ts",
   "scripts": {
     "start": "node --env-file .env dist/src/index.js",
@@ -9,7 +9,14 @@
     "build": "tsc",
     "format": "prettier --write ./src"
   },
-  "author": "",
+  "author": "Clever Bernal Terrazas",
+  "keywords": [
+    "nodejs",
+    "express",
+    "typescript",
+    "prisma",
+    "jsonwebtoken"
+  ],
   "license": "ISC",
   "dependencies": {
     "@prisma/client": "^5.16.1",
@@ -18,9 +25,6 @@
     "express": "^4.19.2",
     "jsonwebtoken": "^9.0.2",
     "morgan": "^1.10.0",
-    "pg": "^8.12.0",
-    "pg-hstore": "^2.3.4",
-    "sequelize": "^6.37.3",
     "zod": "^3.23.8"
   },
   "devDependencies": {
