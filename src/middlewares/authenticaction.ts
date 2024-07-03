@@ -44,7 +44,7 @@ export const authMiddleware: RequestHandler = async (req, res, next) => {
     if (!user) {
       return res.status(401).json({
         error: {
-          message: "Unauthorized",
+          message: "Unauthorized / User not found",
         },
       });
     }
