@@ -1,5 +1,6 @@
 import { Router } from "express";
 import { UsersController } from "../controllers/users.controller";
+import { authMiddleware } from "../middlewares/authenticaction";
 
 const router = Router();
 
@@ -10,10 +11,10 @@ router
 
 router
   .route("/:id")
-  .get(UsersController.getUserById)
-  .put(UsersController.updateUser)
-  .patch(UsersController.updateUserStatus)
-  .delete(UsersController.deleteUser);
+  .get(authMiddleware, UsersController.getUserById)
+  .put(authMiddleware, UsersController.updateUser)
+  .patch(authMiddleware, UsersController.updateUserStatus)
+  .delete(authMiddleware, UsersController.deleteUser);
 
 router.get("/:id/tasks", UsersController.getUserTasks);
 
