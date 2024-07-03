@@ -78,7 +78,7 @@ GET /api/tasks
 POST /api/tasks
 body:
 {
-   "title":"string"
+   "name":"string"
 }
 
 GET /api/tasks/:id
@@ -86,8 +86,7 @@ GET /api/tasks/:id
 PUT /api/tasks/:id
 body:
 {
-   "title":"string",
-   "done":"boolean"
+   "name":"string",
 }
 
 PATCH /api/tasks/:id
@@ -117,7 +116,12 @@ body:
 {
   "username": "string",
   "password": "string",
-  "status":"ACTIVE | INACTIVE"
+}
+
+PATCH /api/users/:id
+body:
+{
+   "status":"boolean"
 }
 
 DELETE /api/users/:id
