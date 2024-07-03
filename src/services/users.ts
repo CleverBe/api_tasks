@@ -59,12 +59,10 @@ export class UsersService {
     id,
     username,
     password,
-    status,
   }: {
     id: number;
     username: string;
     password: string;
-    status: UserStatus;
   }) {
     const user = prisma.user.findUnique({
       where: { id },
@@ -90,7 +88,6 @@ export class UsersService {
         data: {
           username,
           password: hashedPassword,
-          status,
         },
       });
 
@@ -100,7 +97,6 @@ export class UsersService {
         where: { id },
         data: {
           username,
-          status,
         },
       });
 
@@ -158,6 +154,7 @@ export class UsersService {
 
     const tasks = await prisma.task.findMany({
       where: { userId: id },
+      select: { name: true, done: true },
     });
 
     return { id, username: user.username, tasks };

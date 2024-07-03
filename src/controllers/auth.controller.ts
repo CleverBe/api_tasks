@@ -18,7 +18,7 @@ export class AuthController {
 
       const user = await AuthService.login({ username, password });
 
-      res.json(user);
+      res.json({ token: user.token });
     } catch (error) {
       if (error instanceof CustomError) {
         res

@@ -12,5 +12,4 @@ export const updateUserStatusSchema = z.object({
 
 export const updateUserSchema = z.object({
   ...createUserSchema.shape,
-  ...updateUserStatusSchema.shape,
 });

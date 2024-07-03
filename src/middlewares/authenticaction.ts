@@ -39,16 +39,6 @@ export const authMiddleware: RequestHandler = async (req, res, next) => {
 
     const decoded = jwt.verify(token, jwt_secret) as JWT_PAYLOAD;
 
-    const user = await UsersService.getUserById(decoded.id);
-
-    if (!user) {
-      return res.status(401).json({
-        error: {
-          message: "Unauthorized",
-        },
-      });
-    }
-
     // @ts-ignore
     req.user = decoded;
 

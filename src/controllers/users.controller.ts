@@ -15,9 +15,8 @@ export class UsersController {
       const mappedUsers = users.map((user) => ({
         id: user.id,
         username: user.username,
+        password: user.password,
         status: user.status,
-        createdAt: user.createdAt,
-        updatedAt: user.updatedAt,
       }));
 
       res.json(mappedUsers);
@@ -52,6 +51,7 @@ export class UsersController {
         id: user.id,
         username: user.username,
         status: user.status,
+        password: user.password,
         createdAt: user.createdAt,
         updatedAt: user.updatedAt,
       });
@@ -92,6 +92,7 @@ export class UsersController {
         id: user.id,
         username: user.username,
         status: user.status,
+        password: user.password,
         createdAt: user.createdAt,
         updatedAt: user.updatedAt,
       });
@@ -124,7 +125,7 @@ export class UsersController {
         });
       }
 
-      const { username, password, status } = validation.data;
+      const { username, password } = validation.data;
 
       const duplicateUser = await UsersService.getUserByUsername(username);
 
@@ -138,16 +139,9 @@ export class UsersController {
         id: Number(id),
         username,
         password,
-        status,
       });
 
-      res.json({
-        id: user.id,
-        username: user.username,
-        status: user.status,
-        createdAt: user.createdAt,
-        updatedAt: user.updatedAt,
-      });
+      res.json([1]);
     } catch (error) {
       if (error instanceof CustomError) {
         res
@@ -211,6 +205,7 @@ export class UsersController {
       res.json({
         id: user.id,
         username: user.username,
+        password: user.password,
         status: user.status,
         createdAt: user.createdAt,
         updatedAt: user.updatedAt,

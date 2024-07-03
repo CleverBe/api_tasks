@@ -70,9 +70,9 @@ export class TasksController {
         });
       }
 
-      const { title } = validation.data;
+      const { name } = validation.data;
 
-      const task = await TasksService.createTask({ title, userId: user.id });
+      const task = await TasksService.createTask({ name, userId: user.id });
 
       res.status(201).json(task);
     } catch (error) {
@@ -107,16 +107,15 @@ export class TasksController {
         });
       }
 
-      const { title, done } = validation.data;
+      const { name } = validation.data;
 
       const task = await TasksService.updateTask({
         id: parsedId,
-        title,
-        done,
+        name,
         userId: user.id,
       });
 
-      res.json(task);
+      res.json([1]);
     } catch (error) {
       if (error instanceof CustomError) {
         res
@@ -184,7 +183,7 @@ export class TasksController {
         done,
       });
 
-      res.json(task);
+      res.json([1]);
     } catch (error) {
       if (error instanceof CustomError) {
         res

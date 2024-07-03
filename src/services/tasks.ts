@@ -5,7 +5,7 @@ export class TasksService {
   static async getAllTasks(userId: number) {
     const tasks = await prisma.task.findMany({
       where: { userId },
-      select: { id: true, title: true, done: true },
+      select: { id: true, name: true, done: true },
     });
 
     return tasks;
@@ -14,7 +14,7 @@ export class TasksService {
   static async getTaskById({ id, userId }: { id: number; userId: number }) {
     const task = await prisma.task.findUnique({
       where: { id, userId },
-      select: { id: true, title: true, done: true },
+      select: { id: true, name: true, done: true },
     });
 
     if (!task) {
@@ -24,16 +24,10 @@ export class TasksService {
     return task;
   }
 
-  static async createTask({
-    title,
-    userId,
-  }: {
-    title: string;
-    userId: number;
-  }) {
+  static async createTask({ name, userId }: { name: string; userId: number }) {
     const task = await prisma.task.create({
       data: {
-        title,
+        name,
         userId,
       },
     });
@@ -43,13 +37,11 @@ export class TasksService {
 
   static async updateTask({
     id,
-    title,
-    done,
+    name,
     userId,
   }: {
     id: number;
-    title: string;
-    done: boolean;
+    name: string;
     userId: number;
   }) {
     const task = await prisma.task.findUnique({
@@ -63,8 +55,7 @@ export class TasksService {
     const updatedTask = await prisma.task.update({
       where: { id, userId },
       data: {
-        title,
-        done,
+        name,
       },
     });
 

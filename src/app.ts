@@ -31,7 +31,7 @@ app.use(
   })
 );
 
-app.use("/api/users", usersRoutes);
+app.use("/api/users", authMiddleware, usersRoutes);
 app.use("/api/tasks", authMiddleware, tasksRoutes);
 app.use("/api/auth", authRoutes);
 
