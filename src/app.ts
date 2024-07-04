@@ -28,12 +28,12 @@ app.use(
 
       return callback(new Error("Not allowed by CORS"));
     },
-  })
+  }),
 );
 
 app.use("/api/users", usersRoutes);
 app.use("/api/tasks", authMiddleware, tasksRoutes);
-app.use("/api/auth", authRoutes);
+app.use("/api/", authRoutes);
 
 app.get("/healthChecker", (_req, res) => {
   res.send("OK");
