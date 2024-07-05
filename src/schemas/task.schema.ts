@@ -1,7 +1,7 @@
 import { z } from "zod";
 
 export const createTaskSchema = z.object({
-  name: z.string().min(3, "Name must be at least 3 characters"),
+  name: z.string(),
 });
 
 export const updateTaskDoneSchema = z.object({
