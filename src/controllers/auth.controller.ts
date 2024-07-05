@@ -5,6 +5,7 @@ import { CustomError } from "../types";
 
 export class AuthController {
   static login: RequestHandler = async (req, res, next) => {
+    console.log({ body: req.body });
     try {
       const validation = loginUserSchema.safeParse(req.body);
 

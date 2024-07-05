@@ -32,6 +32,7 @@ export class TasksController {
     const user = req.user as { id: number; username: string };
 
     const { id } = req.params;
+    console.log({ id });
 
     const parsedId = Number(id);
 
@@ -60,6 +61,8 @@ export class TasksController {
   static createTask: RequestHandler = async (req, res, next) => {
     // @ts-ignore
     const user = req.user as { id: number; username: string };
+
+    console.log({ body: req.body });
 
     try {
       const validation = createTaskSchema.safeParse(req.body);
@@ -91,6 +94,7 @@ export class TasksController {
     const user = req.user as { id: number; username: string };
 
     const { id } = req.params;
+    console.log({ id, body: req.body });
 
     const parsedId = Number(id);
 
@@ -132,6 +136,7 @@ export class TasksController {
     const user = req.user as { id: number; username: string };
 
     const { id } = req.params;
+    console.log({ id });
 
     const parsedId = Number(id);
 
@@ -159,6 +164,7 @@ export class TasksController {
     const user = req.user as { id: number; username: string };
 
     const { id } = req.params;
+    console.log({ id, body: req.body });
 
     const parsedId = Number(id);
 

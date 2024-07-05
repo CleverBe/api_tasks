@@ -33,6 +33,7 @@ export class UsersController {
 
   static getUserById: RequestHandler = async (req, res, next) => {
     const { id } = req.params;
+    console.log({ id });
 
     const parsedId = Number(id);
 
@@ -67,6 +68,7 @@ export class UsersController {
   };
 
   static createUser: RequestHandler = async (req, res, next) => {
+    console.log({ body: req.body });
     try {
       const validation = createUserSchema.safeParse(req.body);
 
@@ -108,6 +110,7 @@ export class UsersController {
   };
 
   static updateUser: RequestHandler = async (req, res, next) => {
+    console.log({ body: req.body });
     const { id } = req.params;
 
     const parsedId = Number(id);
@@ -155,6 +158,7 @@ export class UsersController {
 
   static deleteUser: RequestHandler = async (req, res, next) => {
     const { id } = req.params;
+    console.log({ id });
 
     const parsedId = Number(id);
 
@@ -179,6 +183,7 @@ export class UsersController {
 
   static updateUserStatus: RequestHandler = async (req, res, next) => {
     const { id } = req.params;
+    console.log({ id, body: req.body });
 
     const parsedId = Number(id);
 
@@ -223,6 +228,7 @@ export class UsersController {
 
   static getUserTasks: RequestHandler = async (req, res, next) => {
     const { id } = req.params;
+    console.log({ id });
 
     const parsedId = Number(id);
 
